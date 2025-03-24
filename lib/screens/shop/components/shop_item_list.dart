@@ -9,13 +9,13 @@ class ShopItemList extends StatefulWidget {
   final Product product;
   final VoidCallback onRemove;
 
-  ShopItemList(this.product, {required this.onRemove});
+  const ShopItemList(this.product, {super.key, required this.onRemove});
 
   @override
-  _ShopItemListState createState() => _ShopItemListState();
+  ShopItemListState createState() => ShopItemListState();
 }
 
-class _ShopItemListState extends State<ShopItemList> {
+class ShopItemListState extends State<ShopItemList> {
   int quantity = 1;
 
   @override
@@ -82,14 +82,14 @@ class _ShopItemListState extends State<ShopItemList> {
                       ),
                       Theme(
                           data: ThemeData(
-                              accentColor: Colors.black,
+                              colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.black),
                               textTheme: TextTheme(
-                                headline6: TextStyle(
+                                titleLarge: TextStyle(
                                     fontFamily: 'Montserrat',
                                     fontSize: 14,
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold),
-                                bodyText1: TextStyle(
+                                bodyLarge: TextStyle(
                                   fontFamily: 'Montserrat',
                                   fontSize: 12,
                                   color: Colors.grey[400],

@@ -5,6 +5,8 @@ import 'dart:math' as math;
 import 'package:flutter/services.dart';
 
 class SelectCardPage extends StatelessWidget {
+  const SelectCardPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width / 1.2;
@@ -15,7 +17,7 @@ class SelectCardPage extends StatelessWidget {
           iconTheme: IconThemeData(
             color: Colors.black,
           ),
-          brightness: Brightness.light,
+          systemOverlayStyle: SystemUiOverlayStyle.dark,
           backgroundColor: Colors.transparent,
           title: Text(
             'Select Card',

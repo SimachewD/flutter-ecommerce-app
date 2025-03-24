@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class CategoryCard extends StatelessWidget {
   final Category category;
 
-  const CategoryCard({
+  const CategoryCard({super.key, 
     required this.category,
   });
 

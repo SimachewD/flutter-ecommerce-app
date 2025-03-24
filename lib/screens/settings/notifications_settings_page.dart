@@ -3,14 +3,17 @@ import 'dart:io';
 import 'package:ecommerce_int2/app_properties.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class NotificationSettingsPage extends StatefulWidget {
+  const NotificationSettingsPage({super.key});
+
   @override
-  _NotificationSettingsPageState createState() =>
-      _NotificationSettingsPageState();
+  NotificationSettingsPageState createState() =>
+      NotificationSettingsPageState();
 }
 
-class _NotificationSettingsPageState extends State<NotificationSettingsPage> {
+class NotificationSettingsPageState extends State<NotificationSettingsPage> {
   bool myOrders = true;
   bool reminders = true;
   bool newOffers = true;
@@ -26,7 +29,7 @@ class _NotificationSettingsPageState extends State<NotificationSettingsPage> {
           });
         },
         value: true,
-        activeColor: yellow,
+        activeTrackColor: yellow,
       );
     } else {
       return Switch(
@@ -49,7 +52,7 @@ class _NotificationSettingsPageState extends State<NotificationSettingsPage> {
         iconTheme: IconThemeData(
             color: Colors.black,
           ),
-        brightness: Brightness.light,
+        systemOverlayStyle: SystemUiOverlayStyle.dark,
         backgroundColor: Colors.transparent,
         title: Text(
           'Settings',

@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class ProductDisplay extends StatelessWidget {
   final Product product;
 
-  const ProductDisplay({
+  const ProductDisplay({super.key, 
     required this.product,
   });
   @override
@@ -20,7 +20,7 @@ class ProductDisplay extends StatelessWidget {
                 width: MediaQuery.of(context).size.width / 1.5,
                 height: 85,
                 padding: EdgeInsets.only(right: 24),
-                decoration: new BoxDecoration(
+                decoration: BoxDecoration(
                     color: darkGrey,
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(8.0),
@@ -38,14 +38,14 @@ class ProductDisplay extends StatelessWidget {
                     TextSpan(
                         text: '\$ ${product.price}',
                         style: const TextStyle(
-                            color: const Color(0xFFFFFFFF),
+                            color: Color(0xFFFFFFFF),
                             fontWeight: FontWeight.w400,
                             fontFamily: "Montserrat",
                             fontSize: 36.0)),
                     TextSpan(
                         text: '.58',
                         style: const TextStyle(
-                            color: const Color(0xFFFFFFFF),
+                            color: Color(0xFFFFFFFF),
                             fontWeight: FontWeight.w400,
                             fontFamily: "Montserrat",
                             fontSize: 18.0))
@@ -55,7 +55,7 @@ class ProductDisplay extends StatelessWidget {
           alignment: Alignment(-1, 0),
           child: Padding(
             padding: const EdgeInsets.only(right: 20.0, left: 20.0),
-            child: Container(
+            child: SizedBox(
               height: screenAwareSize(220, context),
               child: Stack(
                 children: <Widget>[
@@ -63,15 +63,13 @@ class ProductDisplay extends StatelessWidget {
                     padding: const EdgeInsets.only(
                       bottom: 18.0,
                     ),
-                    child: Container(
-                      child: Hero(
-                        tag: product.image,
-                        child: Image.asset(
-                          product.image,
-                          fit: BoxFit.contain,
-                          height: 230,
-                          width: 230,
-                        ),
+                    child: Hero(
+                      tag: product.image,
+                      child: Image.asset(
+                        product.image,
+                        fit: BoxFit.contain,
+                        height: 230,
+                        width: 230,
                       ),
                     ),
                   )
@@ -87,11 +85,11 @@ class ProductDisplay extends StatelessWidget {
             onPressed: () => Navigator.of(context)
                 .push(MaterialPageRoute(builder: (_) => RatingPage())),
             constraints: const BoxConstraints(minWidth: 45, minHeight: 45),
-            child:
-                Icon(Icons.favorite, color: Color.fromRGBO(255, 137, 147, 1)),
             elevation: 0.0,
             shape: CircleBorder(),
             fillColor: Color.fromRGBO(255, 255, 255, 0.4),
+            child:
+                Icon(Icons.favorite, color: Color.fromRGBO(255, 137, 147, 1)),
           ),
         )
       ],

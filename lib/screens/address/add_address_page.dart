@@ -4,6 +4,8 @@ import 'package:ecommerce_int2/screens/select_card_page.dart';
 import 'package:flutter/material.dart';
 
 class AddAddressPage extends StatelessWidget {
+  const AddAddressPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     Widget finishButton = InkWell(
@@ -24,9 +26,9 @@ class AddAddressPage extends StatelessWidget {
             ],
             borderRadius: BorderRadius.circular(9.0)),
         child: Center(
-          child: Text("Finish",
-              style: const TextStyle(
-                  color: const Color(0xfffefefe),
+          child: const Text("Finish",
+              style: TextStyle(
+                  color: Color(0xfffefefe),
                   fontWeight: FontWeight.w600,
                   fontStyle: FontStyle.normal,
                   fontSize: 20.0)),

@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 import 'models/user.dart';
@@ -24,11 +25,11 @@ class ApiService {
         List<User> users = list.map((l) => User.fromJson(l)).toList();
         return users;
       } else {
-        print(response.body);
+        debugPrint(response.body);
         return [];
       }
     } catch (e) {
-      print(e);
+      debugPrint(e as String?);
       return [];
     }
   }

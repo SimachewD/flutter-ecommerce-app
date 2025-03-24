@@ -1,13 +1,16 @@
 import 'package:ecommerce_int2/app_properties.dart';
-import 'package:flutter/cupertino.dart';
+// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class FaqPage extends StatefulWidget {
+  const FaqPage({super.key});
+
   @override
-  _FaqPageState createState() => _FaqPageState();
+  FaqPageState createState() => FaqPageState();
 }
 
-class _FaqPageState extends State<FaqPage> {
+class FaqPageState extends State<FaqPage> {
   List<Panel> panels = [
     Panel(
         'HOW CAN I CHANGE MY SHIPPING ADDRESS?',
@@ -43,7 +46,7 @@ class _FaqPageState extends State<FaqPage> {
         iconTheme: IconThemeData(
           color: Colors.black,
         ),
-        brightness: Brightness.light,
+        systemOverlayStyle: SystemUiOverlayStyle.dark,
         backgroundColor: Colors.transparent,
         title: Text(
           'Settings',
@@ -81,7 +84,7 @@ class _FaqPageState extends State<FaqPage> {
                           child: Text(
                               panel.content,
                               style:
-                              TextStyle(color: Colors.grey, fontSize: 12)))])).toList(),
+                              TextStyle(color: Colors.grey, fontSize: 12)))])),
 
               ],
             ),

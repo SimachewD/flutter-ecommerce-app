@@ -1,12 +1,15 @@
 import 'package:ecommerce_int2/app_properties.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class ChangeLanguagePage extends StatefulWidget {
+  const ChangeLanguagePage({super.key});
+
   @override
-  _ChangeCountryPageState createState() => _ChangeCountryPageState();
+  ChangeCountryPageState createState() => ChangeCountryPageState();
 }
 
-class _ChangeCountryPageState extends State<ChangeLanguagePage> {
+class ChangeCountryPageState extends State<ChangeLanguagePage> {
   List<String> languages = [
     'Chinesse',
     'Spanish',
@@ -27,7 +30,7 @@ class _ChangeCountryPageState extends State<ChangeLanguagePage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        brightness: Brightness.light,
+        systemOverlayStyle: SystemUiOverlayStyle.dark,
         iconTheme: IconThemeData(
           color: Colors.black, //change your color here
         ),

@@ -5,11 +5,13 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:ecommerce_int2/screens/rating/rating_dialog.dart';
 
 class RatingPage extends StatefulWidget {
+  const RatingPage({super.key});
+
   @override
-  _RatingPageState createState() => _RatingPageState();
+  RatingPageState createState() => RatingPageState();
 }
 
-class _RatingPageState extends State<RatingPage> {
+class RatingPageState extends State<RatingPage> {
   double rating = 0.0;
   List<int> ratings = [2, 1, 5, 2, 4, 3];
 
@@ -112,7 +114,7 @@ class _RatingPageState extends State<RatingPage> {
                                     setState(() {
                                       rating = value;
                                     });
-                                    print(value);
+                                    debugPrint(value as String?);
                                   },
                                 ),
                                 Padding(
@@ -207,7 +209,7 @@ class _RatingPageState extends State<RatingPage> {
                                                   setState(() {
                                                     rating = value;
                                                   });
-                                                  print(value);
+                                                  debugPrint(value as String?);
                                                 },
                                               ),
                                             ),
@@ -248,7 +250,7 @@ class _RatingPageState extends State<RatingPage> {
                                       )
                                     ],
                                   )))
-                              .toList()
+                              
                         ],
                       )
                     ],

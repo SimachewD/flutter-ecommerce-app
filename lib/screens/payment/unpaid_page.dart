@@ -3,11 +3,13 @@ import 'package:ecommerce_int2/screens/payment/promo_item.dart';
 import 'package:flutter/material.dart';
 
 class UnpaidPage extends StatefulWidget {
+  const UnpaidPage({super.key});
+
   @override
-  _UnpaidPageState createState() => _UnpaidPageState();
+  UnpaidPageState createState() => UnpaidPageState();
 }
 
-class _UnpaidPageState extends State<UnpaidPage> {
+class UnpaidPageState extends State<UnpaidPage> {
   @override
   Widget build(BuildContext context) {
     Widget payNow = InkWell(
@@ -27,9 +29,9 @@ class _UnpaidPageState extends State<UnpaidPage> {
             ],
             borderRadius: BorderRadius.circular(9.0)),
         child: Center(
-          child: Text("Pay Now",
-              style: const TextStyle(
-                  color: const Color(0xfffefefe),
+          child: const Text("Pay Now",
+              style: TextStyle(
+                  color: Color(0xfffefefe),
                   fontWeight: FontWeight.w600,
                   fontStyle: FontStyle.normal,
                   fontSize: 20.0)),

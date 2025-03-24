@@ -3,11 +3,13 @@ import 'package:ecommerce_int2/screens/auth/welcome_back_page.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
   @override
-  _SplashScreenState createState() => _SplashScreenState();
+  SplashScreenState createState() => SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen>
+class SplashScreenState extends State<SplashScreen>
     with SingleTickerProviderStateMixin {
   late Animation<double> opacity;
   late AnimationController controller;
@@ -37,6 +39,7 @@ class _SplashScreenState extends State<SplashScreen>
         .pushReplacement(MaterialPageRoute(builder: (_) => WelcomeBackPage()));
   }
 
+  @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
@@ -45,13 +48,13 @@ class _SplashScreenState extends State<SplashScreen>
       child: Container(
         decoration: BoxDecoration(color: transparentYellow),
         child: SafeArea(
-          child: new Scaffold(
+          child: Scaffold(
             body: Column(
               children: <Widget>[
                 Expanded(
                   child: Opacity(
                       opacity: opacity.value,
-                      child: new Image.asset('assets/logo.png')),
+                      child: Image.asset('assets/logo.png')),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),

@@ -2,13 +2,16 @@ import 'package:ecommerce_int2/api_service.dart';
 import 'package:ecommerce_int2/models/user.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class PaymentHistoryPage extends StatefulWidget {
+  const PaymentHistoryPage({super.key});
+
   @override
-  _PaymentHistoryPageState createState() => _PaymentHistoryPageState();
+  PaymentHistoryPageState createState() => PaymentHistoryPageState();
 }
 
-class _PaymentHistoryPageState extends State<PaymentHistoryPage> {
+class PaymentHistoryPageState extends State<PaymentHistoryPage> {
   List<User> users = [];
   List<String> dates = ['24th June 2019', '29th June 2019', '2nd July 2019'];
 
@@ -26,7 +29,6 @@ class _PaymentHistoryPageState extends State<PaymentHistoryPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     _getUsers();
     super.initState();
   }
@@ -43,7 +45,7 @@ class _PaymentHistoryPageState extends State<PaymentHistoryPage> {
             'Payment History',
             style: TextStyle(color: Colors.black),
           ),
-          brightness: Brightness.light,
+          systemOverlayStyle: SystemUiOverlayStyle.dark,
         ),
         body: SafeArea(
           child: LayoutBuilder(
@@ -109,7 +111,7 @@ class _PaymentHistoryPageState extends State<PaymentHistoryPage> {
                                                 fontWeight: FontWeight.bold)),
                                       ),
                                       Center(
-                                        child: users.length == 0
+                                        child: users.isEmpty
                                             ? CupertinoActivityIndicator()
                                             : Container(
                                                 padding:
@@ -150,9 +152,7 @@ class _PaymentHistoryPageState extends State<PaymentHistoryPage> {
                                                                         padding:
                                                                             const EdgeInsets.only(top: 16.0),
                                                                         child: Text(
-                                                                            user.name.first +
-                                                                                ' ' +
-                                                                                user.name.last,
+                                                                            '${user.name.first} ${user.name.last}',
                                                                             style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)),
                                                                       ),
                                                                       Padding(
@@ -226,7 +226,7 @@ class _PaymentHistoryPageState extends State<PaymentHistoryPage> {
                                       ),
                                     ],
                                   ))
-                              .toList(),
+                              ,
                         ]),
                       ),
                     ],

@@ -4,11 +4,13 @@ import 'package:flutter/material.dart';
 import 'confirm_otp_page.dart';
 
 class ForgotPasswordPage extends StatefulWidget {
+  const ForgotPasswordPage({super.key});
+
   @override
-  _ForgotPasswordPageState createState() => _ForgotPasswordPageState();
+  ForgotPasswordPageState createState() => ForgotPasswordPageState();
 }
 
-class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
+class ForgotPasswordPageState extends State<ForgotPasswordPage> {
   TextEditingController phoneNumber = TextEditingController(text: '46834683');
 
   GlobalKey prefixKey = GlobalKey();
@@ -16,13 +18,13 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
 
   @override
   Widget build(BuildContext context) {
-    Widget background = Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(
-            image: AssetImage('assets/background.jpg'), fit: BoxFit.cover),
-      ),
-      foregroundDecoration: BoxDecoration(color: transparentYellow),
-    );
+    // Widget background = Container(
+    //   decoration: BoxDecoration(
+    //     image: DecorationImage(
+    //         image: AssetImage('assets/background.jpg'), fit: BoxFit.cover),
+    //   ),
+    //   foregroundDecoration: BoxDecoration(color: transparentYellow),
+    // );
 
     Widget title = Text(
       'Forgot your Password?',
@@ -60,13 +62,6 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
         child: Container(
           width: MediaQuery.of(context).size.width / 2,
           height: 80,
-          child: Center(
-              child: new Text("Send OTP",
-                  style: const TextStyle(
-                      color: const Color(0xfffefefe),
-                      fontWeight: FontWeight.w600,
-                      fontStyle: FontStyle.normal,
-                      fontSize: 20.0))),
           decoration: BoxDecoration(
               gradient: LinearGradient(
                   colors: [
@@ -84,11 +79,18 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                 )
               ],
               borderRadius: BorderRadius.circular(9.0)),
+          child: Center(
+              child: const Text("Send OTP",
+                  style:  TextStyle(
+                      color:  Color(0xfffefefe),
+                      fontWeight: FontWeight.w600,
+                      fontStyle: FontStyle.normal,
+                      fontSize: 20.0))),
         ),
       ),
     );
 
-    Widget phoneForm = Container(
+    Widget phoneForm = SizedBox(
       height: 210,
       child: Stack(
         children: <Widget>[
@@ -149,7 +151,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
           ],
         ));
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(new FocusNode()),
+      onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
       child: Container(
         decoration: BoxDecoration(
             image: DecorationImage(

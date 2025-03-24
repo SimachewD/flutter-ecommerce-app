@@ -6,7 +6,7 @@ class CategoryCard extends StatelessWidget {
   final String categoryName;
   final String assetPath;
 
-  CategoryCard({
+  CategoryCard({super.key, 
     required this.controller,
     required this.begin,
     required this.end,
@@ -108,7 +108,7 @@ class StaggeredCardCard extends StatefulWidget {
   final String categoryName;
   final String assetPath;
 
-  const StaggeredCardCard({
+  const StaggeredCardCard({super.key, 
     required this.begin,
     required this.end,
     required this.categoryName,
@@ -116,10 +116,10 @@ class StaggeredCardCard extends StatefulWidget {
   });
 
   @override
-  _StaggeredCardCardState createState() => _StaggeredCardCardState();
+  StaggeredCardCardState createState() => StaggeredCardCardState();
 }
 
-class _StaggeredCardCardState extends State<StaggeredCardCard>
+class StaggeredCardCardState extends State<StaggeredCardCard>
     with TickerProviderStateMixin {
   late AnimationController _controller;
   bool isActive = false;
@@ -150,7 +150,7 @@ class _StaggeredCardCardState extends State<StaggeredCardCard>
 
   @override
   Widget build(BuildContext context) {
-    var timeDilation = 10.0; // 1.0 is normal animation speed.
+    // var timeDilation = 10.0; // 1.0 is normal animation speed.
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
       onTap: () {

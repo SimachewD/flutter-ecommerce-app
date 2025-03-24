@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class RatingDialog extends StatelessWidget {
+  const RatingDialog({super.key});
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -30,7 +32,7 @@ class RatingDialog extends StatelessWidget {
         child: Center(
           child: Text("Pay Now",
               style: const TextStyle(
-                  color: const Color(0xfffefefe),
+                  color: Color(0xfffefefe),
                   fontWeight: FontWeight.w600,
                   fontStyle: FontStyle.normal,
                   fontSize: 20.0)),

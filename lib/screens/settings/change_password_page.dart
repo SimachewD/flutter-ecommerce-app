@@ -1,13 +1,16 @@
 import 'package:ecommerce_int2/app_properties.dart';
-import 'package:flutter/cupertino.dart';
+// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class ChangePasswordPage extends StatefulWidget {
+  const ChangePasswordPage({super.key});
+
   @override
-  _ChangePasswordPageState createState() => _ChangePasswordPageState();
+  ChangePasswordPageState createState() => ChangePasswordPageState();
 }
 
-class _ChangePasswordPageState extends State<ChangePasswordPage> {
+class ChangePasswordPageState extends State<ChangePasswordPage> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -31,7 +34,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
         child: Center(
           child: Text("Confirm Change",
               style: const TextStyle(
-                  color: const Color(0xfffefefe),
+                  color: Color(0xfffefefe),
                   fontWeight: FontWeight.w600,
                   fontStyle: FontStyle.normal,
                   fontSize: 20.0)),
@@ -45,7 +48,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
         iconTheme: IconThemeData(
           color: Colors.black,
         ),
-        brightness: Brightness.light,
+        systemOverlayStyle: SystemUiOverlayStyle.dark,
         backgroundColor: Colors.transparent,
         title: Text(
           'Settings',

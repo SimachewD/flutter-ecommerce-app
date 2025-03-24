@@ -1,12 +1,15 @@
 import 'package:ecommerce_int2/app_properties.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class ChangeCountryPage extends StatefulWidget {
+  const ChangeCountryPage({super.key});
+
   @override
-  _ChangeCountryPageState createState() => _ChangeCountryPageState();
+  ChangeCountryPageState createState() => ChangeCountryPageState();
 }
 
-class _ChangeCountryPageState extends State<ChangeCountryPage> {
+class ChangeCountryPageState extends State<ChangeCountryPage> {
   List<String> languages = [
     'China',
     'Spain',
@@ -30,7 +33,7 @@ class _ChangeCountryPageState extends State<ChangeCountryPage> {
         iconTheme: IconThemeData(
           color: Colors.black,
         ),
-        brightness: Brightness.light,
+        systemOverlayStyle: SystemUiOverlayStyle.dark,
         backgroundColor: Colors.transparent,
         title: Text(
           'Settings',

@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 class CustomBottomBar extends StatelessWidget {
   final TabController controller;
 
-  const CustomBottomBar({
+  const CustomBottomBar({super.key, 
     required this.controller,
   });
   @override

@@ -5,7 +5,7 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter/material.dart';
 
 class RecommendedList extends StatelessWidget {
-  List<Product> products = [
+  final List<Product> products = [
     Product('assets/bag_1.png', 'Bag', 'Beautiful bag', 2.33),
     Product('assets/cap_5.png', 'Cap', 'Cap with beautiful design', 10),
     Product('assets/jeans_1.png', 'Jeans', 'Jeans for you', 20),
@@ -17,6 +17,8 @@ class RecommendedList extends StatelessWidget {
     Product('assets/shoeman_7.png', 'Shoes', 'Description', 62.33),
     Product('assets/headphone_9.png', 'Headphones', 'Description', 72.33),
   ];
+
+  RecommendedList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +55,7 @@ class RecommendedList extends StatelessWidget {
               padding: EdgeInsets.zero,
               crossAxisCount: 4,
               itemCount: products.length,
-              itemBuilder: (BuildContext context, int index) => new ClipRRect(
+              itemBuilder: (BuildContext context, int index) => ClipRRect(
                 borderRadius: BorderRadius.all(Radius.circular(5.0)),
                 child: InkWell(
                   onTap: () => Navigator.of(context).push(MaterialPageRoute(
@@ -62,8 +64,8 @@ class RecommendedList extends StatelessWidget {
                       decoration: BoxDecoration(
                         gradient: RadialGradient(
                             colors: [
-                              Colors.grey.withOpacity(0.3),
-                              Colors.grey.withOpacity(0.7),
+                              Colors.grey.withValues(alpha: (0.3 * 255)),
+                              Colors.grey.withValues(alpha: (0.7 * 255)),
                             ],
                             center: Alignment(0, 0),
                             radius: 0.6,

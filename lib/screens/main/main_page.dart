@@ -13,8 +13,10 @@ import 'components/product_list.dart';
 import 'components/tab_view.dart';
 
 class MainPage extends StatefulWidget {
+  const MainPage({super.key});
+
   @override
-  _MainPageState createState() => _MainPageState();
+  MainPageState createState() => MainPageState();
 }
 
 List<String> timelines = ['Weekly featured', 'Best of June', 'Best of 2018'];
@@ -38,7 +40,7 @@ List<Product> products = [
       152.99),
 ];
 
-class _MainPageState extends State<MainPage>
+class MainPageState extends State<MainPage>
     with TickerProviderStateMixin<MainPage> {
   late TabController tabController;
   late TabController bottomTabController;
@@ -52,7 +54,7 @@ class _MainPageState extends State<MainPage>
 
   @override
   Widget build(BuildContext context) {
-    Widget appBar = Container(
+    Widget appBar = SizedBox(
       height: kToolbarHeight + MediaQuery.of(context).padding.top,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -6,11 +6,13 @@ import 'package:flutter/material.dart';
 import 'shop_product.dart';
 
 class ShopBottomSheet extends StatefulWidget {
+  const ShopBottomSheet({super.key});
+
   @override
-  _ShopBottomSheetState createState() => _ShopBottomSheetState();
+  ShopBottomSheetState createState() => ShopBottomSheetState();
 }
 
-class _ShopBottomSheetState extends State<ShopBottomSheet> {
+class ShopBottomSheetState extends State<ShopBottomSheet> {
   List<Product> products = [
     Product(
         'assets/headphones.png',
@@ -44,13 +46,6 @@ class _ShopBottomSheetState extends State<ShopBottomSheet> {
             bottom: MediaQuery.of(context).padding.bottom == 0
                 ? 20
                 : MediaQuery.of(context).padding.bottom),
-        child: Center(
-            child: new Text("Confirm",
-                style: const TextStyle(
-                    color: const Color(0xfffefefe),
-                    fontWeight: FontWeight.w600,
-                    fontStyle: FontStyle.normal,
-                    fontSize: 20.0))),
         decoration: BoxDecoration(
             gradient: mainButton,
             boxShadow: [
@@ -61,6 +56,13 @@ class _ShopBottomSheetState extends State<ShopBottomSheet> {
               )
             ],
             borderRadius: BorderRadius.circular(9.0)),
+        child: Center(
+            child:const Text("Confirm",
+                style:  TextStyle(
+                    color: Color(0xfffefefe),
+                    fontWeight: FontWeight.w600,
+                    fontStyle: FontStyle.normal,
+                    fontSize: 20.0))),
       ),
     );
 

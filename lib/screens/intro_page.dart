@@ -3,11 +3,13 @@ import 'package:ecommerce_int2/screens/main/main_page.dart';
 import 'package:flutter/material.dart';
 
 class IntroPage extends StatefulWidget {
+  const IntroPage({super.key});
+
   @override
-  _IntroPageState createState() => _IntroPageState();
+  IntroPageState createState() => IntroPageState();
 }
 
-class _IntroPageState extends State<IntroPage> {
+class IntroPageState extends State<IntroPage> {
   PageController controller = PageController();
   int pageIndex = 0;
 
@@ -192,10 +194,11 @@ class _IntroPageState extends State<IntroPage> {
                                       fontSize: 16),
                                 ),
                                 onPressed: () {
-                                  if (!(controller.page == 2.0))
+                                  if (!(controller.page == 2.0)) {
                                     controller.nextPage(
                                         duration: Duration(milliseconds: 200),
                                         curve: Curves.linear);
+                                  }
                                 },
                               )
                             : TextButton(

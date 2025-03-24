@@ -1,13 +1,16 @@
 import 'package:ecommerce_int2/app_properties.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 
 class TrackingPage extends StatefulWidget {
+  const TrackingPage({super.key});
+
   @override
-  _TrackingPageState createState() => _TrackingPageState();
+  TrackingPageState createState() => TrackingPageState();
 }
 
-class _TrackingPageState extends State<TrackingPage> {
+class TrackingPageState extends State<TrackingPage> {
   final List<Location> locations = [
     Location('Kolkata Facility', DateTime(2019, 6, 5, 5, 23, 4),
         showHour: false, isHere: false, passed: true),
@@ -42,7 +45,7 @@ class _TrackingPageState extends State<TrackingPage> {
             appBar: AppBar(
               backgroundColor: Colors.transparent,
               elevation: 0.0,
-              brightness: Brightness.light,
+              systemOverlayStyle: SystemUiOverlayStyle.dark,
               iconTheme: IconThemeData(color: Colors.grey),
               title: Text(
                 'Shipped',
@@ -121,9 +124,9 @@ class _TrackingPageState extends State<TrackingPage> {
                                       title: Text(location.city),
                                       subtitle: Text(location.getDate()),
                                       content: Align(
+                                        alignment: Alignment.centerLeft,
                                         child: Image.asset(
                                             'assets/icons/truck.png'),
-                                        alignment: Alignment.centerLeft,
                                       ),
                                       state: location.passed
                                           ? StepState.complete
@@ -132,7 +135,7 @@ class _TrackingPageState extends State<TrackingPage> {
                                               : StepState.indexed,
                                     ),
                                   )
-                                  .toList()
+                                  
                             ],
                             currentStep: locations.indexOf(
                                 locations.firstWhere((loc) => loc.isHere)),

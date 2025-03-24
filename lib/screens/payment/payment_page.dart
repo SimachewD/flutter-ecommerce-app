@@ -5,11 +5,13 @@ import 'package:flutter/services.dart';
 import 'dart:math' as math;
 
 class PaymentPage extends StatefulWidget {
+  const PaymentPage({super.key});
+
   @override
-  _PaymentPageState createState() => _PaymentPageState();
+  PaymentPageState createState() => PaymentPageState();
 }
 
-class _PaymentPageState extends State<PaymentPage> {
+class PaymentPageState extends State<PaymentPage> {
   Color active = Colors.red;
   TextEditingController cardNumber = TextEditingController();
   TextEditingController year = TextEditingController();
@@ -40,10 +42,11 @@ class _PaymentPageState extends State<PaymentPage> {
   }
 
   String convertMonthYear(String month, String year) {
-    if (month.isNotEmpty)
-      return month + '/' + year;
-    else
+    if (month.isNotEmpty) {
+      return '$month/$year';
+    } else {
       return '';
+    }
   }
 
   @override
@@ -65,9 +68,9 @@ class _PaymentPageState extends State<PaymentPage> {
             ],
             borderRadius: BorderRadius.circular(9.0)),
         child: Center(
-          child: Text("Add This Card",
-              style: const TextStyle(
-                  color: const Color(0xfffefefe),
+          child: const Text("Add This Card",
+              style: TextStyle(
+                  color: Color(0xfffefefe),
                   fontWeight: FontWeight.w600,
                   fontStyle: FontStyle.normal,
                   fontSize: 20.0)),
@@ -180,11 +183,11 @@ class _PaymentPageState extends State<PaymentPage> {
                                     });
                                   },
                                   child: Transform.scale(
+                                      scale: active == c ? 1.2 : 1,
                                       child: Padding(
                                         padding: const EdgeInsets.all(8.0),
                                         child: ColorOption(c ?? Colors.red),
-                                      ),
-                                      scale: active == c ? 1.2 : 1),
+                                      )),
                                 ))
                             .toList(),
                       ),

@@ -1,15 +1,18 @@
-import 'dart:io';
+// import 'dart:io';
 
 import 'package:ecommerce_int2/app_properties.dart';
-import 'package:flutter/cupertino.dart';
+// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class LegalAboutPage extends StatefulWidget {
+  const LegalAboutPage({super.key});
+
   @override
-  _LegalAboutPageState createState() => _LegalAboutPageState();
+  LegalAboutPageState createState() => LegalAboutPageState();
 }
 
-class _LegalAboutPageState extends State<LegalAboutPage> {
+class LegalAboutPageState extends State<LegalAboutPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +21,7 @@ class _LegalAboutPageState extends State<LegalAboutPage> {
         iconTheme: IconThemeData(
             color: Colors.black,
           ),
-        brightness: Brightness.light,
+        systemOverlayStyle: SystemUiOverlayStyle.dark,
         backgroundColor: Colors.transparent,
         title: Text(
           'Settings',

@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class RatingBottomSheet extends StatefulWidget {
+  const RatingBottomSheet({super.key});
+
   @override
-  _RatingBottomSheetState createState() => _RatingBottomSheetState();
+  RatingBottomSheetState createState() => RatingBottomSheetState();
 }
 
-class _RatingBottomSheetState extends State<RatingBottomSheet> {
+class RatingBottomSheetState extends State<RatingBottomSheet> {
   double rating = 0.0;
   List<int> ratings = [2, 1, 5, 2, 4, 3];
 
@@ -82,7 +84,7 @@ class _RatingBottomSheetState extends State<RatingBottomSheet> {
                         setState(() {
                           rating = value;
                         });
-                        print(value);
+                        debugPrint(value as String?);
                       },
                     ),
                     Padding(
@@ -164,7 +166,7 @@ class _RatingBottomSheetState extends State<RatingBottomSheet> {
                                       setState(() {
                                         rating = value;
                                       });
-                                      print(value);
+                                      debugPrint(value as String?);
                                     },
                                   ),
                                 ),
@@ -202,7 +204,7 @@ class _RatingBottomSheetState extends State<RatingBottomSheet> {
                           )
                         ],
                       )))
-                  .toList()
+                  
             ],
           )
         ],

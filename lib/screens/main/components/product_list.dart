@@ -5,11 +5,11 @@ import 'package:ecommerce_int2/screens/product/product_page.dart';
 import 'package:flutter/material.dart';
 
 class ProductList extends StatelessWidget {
-  List<Product> products;
+  final List<Product> products;
 
   final SwiperController swiperController = SwiperController();
 
-  ProductList({required this.products});
+  ProductList({super.key, required this.products});
 
   @override
   Widget build(BuildContext context) {
@@ -32,17 +32,17 @@ class ProductList extends StatelessWidget {
         pagination: SwiperCustomPagination(
           builder: (context, config) {
             if (config.itemCount > 20) {
-              print(
+              debugPrint(
                   "The itemCount is too big, we suggest use FractionPaginationBuilder instead of DotSwiperPaginationBuilder in this sitituation");
             }
             Color activeColor = mediumYellow;
-            Color color = Colors.grey.withOpacity(.3);
+            Color color = Colors.grey.withValues(alpha: (0.3 * 255));
             double size = 10.0;
             double space = 5.0;
 
             if (config.indicatorLayout != PageIndicatorLayout.NONE &&
                 config.layout == SwiperLayout.DEFAULT) {
-              return new PageIndicator(
+              return PageIndicator(
                 count: config.itemCount,
                 controller: config.pageController!,
                 layout: config.indicatorLayout,
@@ -99,6 +99,7 @@ class ProductCard extends StatelessWidget {
   final double width;
 
   const ProductCard({
+    super.key, 
     required this.product,
     required this.height,
     required this.width,

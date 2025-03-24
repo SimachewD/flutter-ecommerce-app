@@ -2,15 +2,16 @@ import 'package:ecommerce_int2/app_properties.dart';
 import 'package:ecommerce_int2/models/user.dart';
 import 'package:ecommerce_int2/screens/request_money/receive_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class RequestAmountPage extends StatelessWidget {
   final User user;
 
-  RequestAmountPage(this.user);
+  const RequestAmountPage(this.user, {super.key});
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
+    // double width = MediaQuery.of(context).size.width;
     Widget viewProductButton = InkWell(
       onTap: () {},
       child: Container(
@@ -30,7 +31,7 @@ class RequestAmountPage extends StatelessWidget {
         child: Center(
           child: Text("Request Now",
               style: const TextStyle(
-                  color: const Color(0xfffefefe),
+                  color: Color(0xfffefefe),
                   fontWeight: FontWeight.w600,
                   fontStyle: FontStyle.normal,
                   fontSize: 16.0)),
@@ -58,7 +59,7 @@ class RequestAmountPage extends StatelessWidget {
         child: Center(
           child: Text("QR Code",
               style: const TextStyle(
-                  color: const Color(0xfffefefe),
+                  color: Color(0xfffefefe),
                   fontWeight: FontWeight.w600,
                   fontStyle: FontStyle.normal,
                   fontSize: 16.0)),
@@ -72,7 +73,7 @@ class RequestAmountPage extends StatelessWidget {
           iconTheme: IconThemeData(
             color: Colors.black,
           ),
-          brightness: Brightness.light,
+          systemOverlayStyle: SystemUiOverlayStyle.dark,
           backgroundColor: Colors.transparent,
           title: Text(
             'Request Amount',
@@ -115,7 +116,7 @@ class RequestAmountPage extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
                                     Text(
-                                      user.name.first + ' ' + user.name.last,
+                                      '${user.name.first} ${user.name.last}',
                                       style: TextStyle(
                                           color: Colors.white54,
                                           fontSize: 16,
@@ -148,7 +149,7 @@ class RequestAmountPage extends StatelessWidget {
                                         color: Colors.white30, fontSize: 48),
                                     enabledBorder: const UnderlineInputBorder(
                                       borderSide:
-                                          const BorderSide(color: Colors.white),
+                                       BorderSide(color: Colors.white),
                                     ),
                                   ),
                                 ),

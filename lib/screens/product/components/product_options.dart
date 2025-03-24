@@ -3,15 +3,18 @@ import 'package:ecommerce_int2/models/product.dart';
 import 'package:ecommerce_int2/screens/shop/check_out_page.dart';
 import 'package:flutter/material.dart';
 
-import 'shop_bottomSheet.dart';
+import 'shop_bottom_sheet.dart';
 
 class ProductOption extends StatelessWidget {
   final GlobalKey<ScaffoldState> scaffoldKey;
   final Product product;
   const ProductOption(
-    this.scaffoldKey, {
-    required this.product,
-  });
+    this.scaffoldKey, 
+    {
+      super.key, 
+      required this.product,
+    }
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +32,7 @@ class ProductOption extends StatelessWidget {
           ),
           Positioned(
             right: 0.0,
-            child: Container(
+            child: SizedBox(
               height: 180,
               width: 300,
               child: Column(

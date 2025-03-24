@@ -5,6 +5,8 @@ import 'package:ecommerce_int2/screens/product/components/shop_product.dart';
 import 'package:flutter/material.dart';
 
 class PromoItem extends StatelessWidget {
+  const PromoItem({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -66,7 +68,7 @@ class PromoItem extends StatelessWidget {
                               ],
                             ),
                           ),
-//TODO: Work on scroll quantity
+//Work on scroll quantity
 //                            CustomPaint(
 //                              painter: Scroll(),
 //                              child: Container(

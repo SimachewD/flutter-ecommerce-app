@@ -10,11 +10,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class WalletPage extends StatefulWidget {
+  const WalletPage({super.key});
+
   @override
-  _WalletPageState createState() => _WalletPageState();
+  WalletPageState createState() => WalletPageState();
 }
 
-class _WalletPageState extends State<WalletPage> with TickerProviderStateMixin {
+class WalletPageState extends State<WalletPage> with TickerProviderStateMixin {
   late AnimationController animController;
   late Animation<double> openOptions;
 
@@ -61,10 +63,14 @@ class _WalletPageState extends State<WalletPage> with TickerProviderStateMixin {
                                     builder: (_) => PaymentHistoryPage())),
                             icon: SvgPicture.asset(
                               'assets/icons/reload_icon.svg',
-                              color: Colors.red,
+                              colorFilter: ColorFilter.mode(
+                              Colors.red, 
+                              BlendMode.srcIn,
                             ),
                           ),
-                        )),
+                        ),
+                      )
+                    ),
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 16.0),
@@ -154,12 +160,13 @@ class _WalletPageState extends State<WalletPage> with TickerProviderStateMixin {
                                     animController.addListener(() {
                                       setState(() {});
                                     });
-                                    if (openOptions.value == 300)
+                                    if (openOptions.value == 300) {
                                       animController.reverse();
-                                    else
+                                    } else {
                                       animController.forward();
+                                    }
                                   },
-                                  child: Container(
+                                  child: SizedBox(
                                       width: 110,
                                       height: 110,
                                       child: Center(
@@ -184,7 +191,7 @@ class _WalletPageState extends State<WalletPage> with TickerProviderStateMixin {
                   ),
                   Flexible(
                       child: Center(
-                    child: users.length == 0
+                    child: users.isEmpty
                         ? CupertinoActivityIndicator()
                         : Container(
                             height: 150,
@@ -244,9 +251,7 @@ class _WalletPageState extends State<WalletPage> with TickerProviderStateMixin {
                                                               .fromLTRB(
                                                           4.0, 16.0, 4.0, 0.0),
                                                       child: Text(
-                                                          user.name.first +
-                                                              ' ' +
-                                                              user.name.last,
+                                                          '${user.name.first} ${user.name.last}',
                                                           textAlign:
                                                               TextAlign.center,
                                                           style: TextStyle(
@@ -268,7 +273,7 @@ class _WalletPageState extends State<WalletPage> with TickerProviderStateMixin {
                                                   ],
                                                 )),
                                           ))
-                                      .toList(),
+                                      ,
                                 ]),
                           ),
                   )),

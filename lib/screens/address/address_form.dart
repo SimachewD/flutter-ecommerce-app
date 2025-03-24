@@ -2,6 +2,8 @@ import 'package:ecommerce_int2/app_properties.dart';
 import 'package:flutter/material.dart';
 
 class AddAddressForm extends StatelessWidget {
+  const AddAddressForm({super.key});
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(

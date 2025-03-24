@@ -10,16 +10,13 @@ import 'view_product_page.dart';
 class ProductPage extends StatefulWidget {
   final Product product;
 
-  ProductPage({required this.product});
+  const ProductPage({super.key, required this.product});
 
   @override
-  _ProductPageState createState() => _ProductPageState(product);
+  ProductPageState createState() => ProductPageState();
 }
 
-class _ProductPageState extends State<ProductPage> {
-  final Product product;
-
-  _ProductPageState(this.product);
+class ProductPageState extends State<ProductPage> {
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +26,7 @@ class _ProductPageState extends State<ProductPage> {
     Widget viewProductButton = InkWell(
       onTap: () => Navigator.of(context).push(MaterialPageRoute(
           builder: (_) => ViewProductPage(
-                product: product,
+                product: widget.product,
               ))),
       child: Container(
         height: 80,
@@ -47,7 +44,7 @@ class _ProductPageState extends State<ProductPage> {
         child: Center(
           child: Text("View Product",
               style: const TextStyle(
-                  color: const Color(0xfffefefe),
+                  color: Color(0xfffefefe),
                   fontWeight: FontWeight.w600,
                   fontStyle: FontStyle.normal,
                   fontSize: 20.0)),
@@ -63,7 +60,7 @@ class _ProductPageState extends State<ProductPage> {
         iconTheme: IconThemeData(color: darkGrey),
         actions: <Widget>[
           IconButton(
-            icon: new SvgPicture.asset(
+            icon: SvgPicture.asset(
               'assets/icons/search_icon.svg',
               fit: BoxFit.scaleDown,
             ),
@@ -87,7 +84,7 @@ class _ProductPageState extends State<ProductPage> {
                   height: 80.0,
                 ),
                 ProductDisplay(
-                  product: product,
+                  product: widget.product,
                 ),
                 SizedBox(
                   height: 16.0,
@@ -95,9 +92,9 @@ class _ProductPageState extends State<ProductPage> {
                 Padding(
                   padding: const EdgeInsets.only(left: 20.0, right: 16.0),
                   child: Text(
-                    product.name,
+                    widget.product.name,
                     style: const TextStyle(
-                        color: const Color(0xFFFEFEFE),
+                        color:Color(0xFFFEFEFE),
                         fontWeight: FontWeight.w600,
                         fontSize: 20.0),
                   ),
@@ -119,9 +116,9 @@ class _ProductPageState extends State<ProductPage> {
                               Border.all(color: Color(0xFFFFFFFF), width: 0.5),
                         ),
                         child: Center(
-                          child: new Text("Details",
-                              style: const TextStyle(
-                                  color: const Color(0xeefefefe),
+                          child:const Text("Details",
+                              style: TextStyle(
+                                  color: Color(0xeefefefe),
                                   fontWeight: FontWeight.w300,
                                   fontStyle: FontStyle.normal,
                                   fontSize: 12.0)),
@@ -136,9 +133,9 @@ class _ProductPageState extends State<ProductPage> {
                 Padding(
                     padding:
                         EdgeInsets.only(left: 20.0, right: 40.0, bottom: 130),
-                    child: new Text(product.description,
+                    child: Text(widget.product.description,
                         style: const TextStyle(
-                            color: const Color(0xfefefefe),
+                            color: Color(0xfefefefe),
                             fontWeight: FontWeight.w800,
                             fontFamily: "NunitoSans",
                             fontStyle: FontStyle.normal,

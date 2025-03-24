@@ -3,16 +3,19 @@ import 'package:ecommerce_int2/models/user.dart';
 import 'package:ecommerce_int2/screens/request_money/request_amount_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../app_properties.dart';
 
 class RequestPage extends StatefulWidget {
+  const RequestPage({super.key});
+
   @override
-  _RequestPageState createState() => _RequestPageState();
+  RequestPageState createState() => RequestPageState();
 }
 
-class _RequestPageState extends State<RequestPage> {
+class RequestPageState extends State<RequestPage> {
   List<User> frequentUsers = [];
   List<User> users = [];
 
@@ -45,7 +48,7 @@ class _RequestPageState extends State<RequestPage> {
         iconTheme: IconThemeData(
           color: Colors.black,
         ),
-        brightness: Brightness.light,
+        systemOverlayStyle: SystemUiOverlayStyle.dark,
         backgroundColor: Colors.transparent,
         title: Text(
           'Request Amount',
@@ -110,7 +113,7 @@ class _RequestPageState extends State<RequestPage> {
             ),
             Expanded(
                 child: Center(
-              child: frequentUsers.length == 0
+              child: frequentUsers.isEmpty
                   ? CupertinoActivityIndicator()
                   : Container(
                       height: 150,
@@ -147,9 +150,7 @@ class _RequestPageState extends State<RequestPage> {
                                             padding: const EdgeInsets.fromLTRB(
                                                 4.0, 16.0, 4.0, 0.0),
                                             child: Text(
-                                                user.name.first +
-                                                    ' ' +
-                                                    user.name.last,
+                                                '${user.name.first} ${user.name.last}',
                                                 textAlign: TextAlign.center,
                                                 style: TextStyle(
                                                   fontSize: 14.0,
@@ -178,7 +179,7 @@ class _RequestPageState extends State<RequestPage> {
             Expanded(
                 flex: 2,
                 child: Center(
-                  child: users.length == 0
+                  child: users.isEmpty
                       ? CupertinoActivityIndicator()
                       : Container(
                           color: Colors.white,
@@ -213,9 +214,7 @@ class _RequestPageState extends State<RequestPage> {
                                                         const EdgeInsets.only(
                                                             top: 16.0),
                                                     child: Text(
-                                                        user.name.first +
-                                                            ' ' +
-                                                            user.name.last,
+                                                        '${user.name.first} ${user.name.last}',
                                                         style: TextStyle(
                                                             fontSize: 16.0,
                                                             fontWeight:

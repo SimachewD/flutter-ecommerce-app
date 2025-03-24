@@ -7,7 +7,7 @@ class ShopProduct extends StatelessWidget {
   final VoidCallback onRemove;
 
   const ShopProduct(
-    this.product, {
+    this.product, {super.key, 
     required this.onRemove,
   });
 
@@ -47,7 +47,7 @@ class ShopProductDisplay extends StatelessWidget {
   final Product product;
   final VoidCallback onPressed;
 
-  const ShopProductDisplay(this.product, {required this.onPressed});
+  const ShopProductDisplay(this.product, {super.key, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +73,7 @@ class ShopProductDisplay extends StatelessWidget {
               height: 80,
               width: 80,
               child: Image.asset(
-                '${product.image}',
+                product.image,
                 fit: BoxFit.contain,
               )),
         ),

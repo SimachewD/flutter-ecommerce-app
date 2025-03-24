@@ -6,11 +6,13 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'components/staggered_category_card.dart';
 
 class CategoryListPage extends StatefulWidget {
+  const CategoryListPage({super.key});
+
   @override
-  _CategoryListPageState createState() => _CategoryListPageState();
+  CategoryListPageState createState() => CategoryListPageState();
 }
 
-class _CategoryListPageState extends State<CategoryListPage> {
+class CategoryListPageState extends State<CategoryListPage> {
   List<Category> categories = [
     Category(
       Color(0xffFCE183),
@@ -101,11 +103,11 @@ class _CategoryListPageState extends State<CategoryListPage> {
                 onChanged: (value) {
                   if (value.isNotEmpty) {
                     List<Category> tempList = [];
-                    categories.forEach((category) {
+                    for (var category in categories) {
                       if (category.category.toLowerCase().contains(value)) {
                         tempList.add(category);
                       }
-                    });
+                    }
                     setState(() {
                       searchResults.clear();
                       searchResults.addAll(tempList);

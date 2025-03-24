@@ -6,10 +6,13 @@ import 'package:ecommerce_int2/screens/settings/change_password_page.dart';
 import 'package:ecommerce_int2/screens/settings/legal_about_page.dart';
 import 'package:ecommerce_int2/screens/settings/notifications_settings_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'change_language_page.dart';
 
 class SettingsPage extends StatelessWidget {
+  const SettingsPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return CustomPaint(
@@ -19,7 +22,7 @@ class SettingsPage extends StatelessWidget {
           iconTheme: IconThemeData(
             color: Colors.black,
           ),
-          brightness: Brightness.light,
+          systemOverlayStyle: SystemUiOverlayStyle.dark,
           backgroundColor: Colors.transparent,
           title: Text(
             'Settings',

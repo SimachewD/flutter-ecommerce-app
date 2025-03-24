@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 class ColorList extends StatefulWidget {
   final List<Color> colorList;
 
-  ColorList(this.colorList);
+  const ColorList(this.colorList, {super.key});
 
   @override
-  _ColorListState createState() => _ColorListState();
+  ColorListState createState() => ColorListState();
 }
 
-class _ColorListState extends State<ColorList> {
+class ColorListState extends State<ColorList> {
   int active = 0;
 
   @override
@@ -62,7 +62,7 @@ class _ColorListState extends State<ColorList> {
 class ColorOption extends StatelessWidget {
   final Color color;
 
-  const ColorOption(this.color);
+  const ColorOption(this.color, {super.key});
 
   @override
   Widget build(BuildContext context) {

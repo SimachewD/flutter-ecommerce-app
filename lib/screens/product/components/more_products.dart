@@ -22,6 +22,8 @@ class MoreProducts extends StatelessWidget {
         152.99),
   ];
 
+  MoreProducts({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Column(
